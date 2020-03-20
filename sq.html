@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-161428120-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-161428120-1');
+</script>
+<title>Gjej Fjalen | Albion Berisha</title>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+<style>
+body {
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  text-align: center;
+}
+#file {
+  text-align: center;
+  margin: auto;
+}
+#fjalaD {
+
+border: 3px solid #7FFFD4;
+border-radius: 25px;
+ width: 90%;
+ margin: auto;
+}
+
+#fjalaPerzier {
+  margin: auto;
+  padding: 10px;
+  font-size: 100px;
+  color: white;
+}
+#fjalaSakte {
+  margin: auto;
+  margin-top: 15px;
+  padding: 10px;
+  font-size: 100px;
+  color: white;
+}
+
+#file {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+}
+
+.button {
+  background-color: #008B8B; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+
+
+.file-upload {
+  display:block;
+  text-align:center;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 12px; 
+  margin: auto;
+  width: 40%;
+}
+.file-upload .file-select {
+  display:block;
+  border: 2px solid #008B8B;
+  color: white;
+  cursor:pointer;
+  height:40px;
+  line-height:40px;
+  text-align:left;
+  background:#FFFFFF;
+  overflow:hidden;
+  position:relative;
+}
+.file-upload .file-select .file-select-button {
+  background:#008B8B;
+  padding:0 10px;
+  display:inline-block;
+  height:40px;
+  line-height:40px;
+}
+.file-upload .file-select .file-select-name {
+  line-height:40px;
+  display:inline-block;
+  padding:0 10px;
+}
+.file-upload .file-select input[type=file]{
+  z-index:100;
+  cursor:pointer;
+  position:absolute;
+  height:100%;
+  width:100%;
+  top:0;
+  left:0;
+  opacity:0;
+  filter:alpha(opacity=0);
+}
+
+.file-select-name {
+  color: black;
+}
+
+
+</style>
+
+
+</head>
+<body style="background-image: url('fotot/BCG1.png');">
+<hr>
+<p id="titulli" style="font-size:60px;color:white;margin:5px;"><strong>ZBULO FJAL&EumlN E P&EumlRZIER </strong></p>
+<a href="en.html"><img id="gjuha" src="fotot/en.png" height="25px" width="auto" alt="lang"/></a>
+<hr>
+<div class="file-upload">
+  <div class="file-select">
+    <div class="file-select-button" id="fileName">Zgjedh fajllin me fjal&eumlt: </div>
+    <div class="file-select-name" id="noFile">Nuk ka fajll...</div> 
+    <input type="file" name="chooseFile" id="chooseFile">
+  </div>
+</div>
+<hr width="65%">
+<div>
+<p id="ose" style="color:white;font-size:25px"><b>OSE</b></p>
+<p id="vazhdo" style="color:white;font-size:25px"><b>VAZHDO ME FJAL&Euml T&Euml GATSHME </b></p>
+</div>
+<hr width="65%">
+<!--<input type="file" name="file" id="file">-->
+<br/>
+<div id="fjalaD">
+<h1 id="fjalaPerzier">Fjala e P&eumlrzier</h1>
+<hr width="75%">
+<h1 id="fjalaSakte">Fjala e Sakt&euml</h1>
+</div>
+<hr>
+<div id="butonat" style="margin: 0 auto; width: 656px; text-align: center;">
+<button type="button" id="reset" style="float:left;" class="button" onClick="window.location.reload();">Reseto</button>
+<button type="button" id="zbulo" class="button" onclick="shfaqFjalen()" disabled>Zbulo</button>
+<button type="button" style="float:right;" id="perzij" class="button" onclick="shfaqPerzierjen()">Fjala e Radh&eumls</button>
+<div>
+<hr>
+<p style="color:white;"><strong>&copy; T&euml gjitha t&euml drejtat e rezervuara  <script>document.write( new Date().getFullYear() );</script><a style="color:white;" href="mailto:albion.berisha@fer.hr" target="_top"> Albion Berisha </a></strong></p>
+<hr>
+<script>
+
+var count=0;
+var lines;
+var fajllZgjedhur=0;
+var linesG = ["BREGDETI","RINGJALLJA","KOMANDANTI","DASHURIA","P\xCBRS\xCBRITJA","SHQIP\xCBRIA","PRANVERA","DIM\xCBRORE","MBRET\xCBRIA","PERANDORI","PJES\xCBMARRJA","ARKITEKTI","KOK\xCBFORT\xCBSIA","INSTITUCIONET","EKSPERIMENTI","KOMUNIKACIONI","KONKRETIZIMI","INTERTVISTIMI","ELEKTRICITETI","HIDROCENTRALET","ENCIKLOPEDIA","GJINEKOLOGJIA","POLITIKA","ARSIMIMI","P\xCBRFSHIRJA","SHK\xCBLQIMI","VERIP\xCBRENDIMI","DEPARTAMENTI","DARDANIA","BROHORITJE","BASHK\xCBPUNIMI","BASHK\xCBBISEDIMI","Z\xCBVEND\xCBSIMI","Q\xCBNDRUESHM\xCBRIA","R\xCBND\xCBSIA","THEMELUESIT","BURR\xCBSHTETAS","P\xCBRG\xCBZIMET","TUNGJATJETA","P\xCBRSHENDETJE","THASH\xCBTHEME","DREJT\xCBP\xCBRDREJT\xCB","MB\xCBSHTETJA","KRYEMINISTRIA","KUSHTETUTA","MENAXHIMI","AUTODIDAKTI","REVOLUCIONI","P\xCBRFUNDIMI","KOORDINATAT","ND\xCBRKOMB\xCBTARE","MIR\xCBSJELLJE","SHUM\xCBLLOJSHM\xCBRIA","MOSMARR\xCBVESHJA","FALEMINDERIT","UNIVERSITETI","MILENIUMI","D\xCBSHMOR\xCBT","DOMOSDOSHM\xCBRISHT","JASHT\xCBZAKONISHT","P\xCBRGJEGJ\xCBSIA","PAVAR\xCBSIA","KOMUNITETI","ND\xCBRVEPRIMI","EMIGRANT\xCBT","SHPENZIMET","ADMINISTRATORI","TELEVIZIONI","SHPENZIMET","DONACIONET","RREGULLORET","P\xCBRGJEGJ\xCBSIT\xCB","TELEFONATA","RROKAQIELL","TR\xCBNDAFILAT","PANKREASI","AKADEMIA","PRAPAMBETJA","DREJTSHKRIMI","BASHK\xCBTING\xCBLLORET","P\xCBRDITSHM\xCBRIA","MIR\xCBSEARDHJE","KONFERENCA","SH\xCBNDET\xCBSORE","P\xCBRJASHTIMET","MAKSIMALISHT","SHP\xCBRNDARJE","FAMILJAR\xCBT","KILOMETRAT","DEKLARATA","PLANIFIKIMI","ANGAZHIMI","KONSIDERAT\xCB","ORGANIZIMI","INFRASTRUKTURA","PRIVATIZIMI","DESTINACIONET","NDERMARR\xCBSIA","PROGRAMIMI","AUTOMATIZIMI"];
+
+String.prototype.shuffle = function () {
+    var a = this.split(""),
+        n = a.length;
+
+    for(var i = n - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var tmp = a[i];
+        a[i] = a[j];
+        a[j] = tmp;
+    }
+    return a.join("");
+}
+//console.log("the quick brown fox jumps over the lazy dog".shuffle());
+//-> "veolrm  hth  ke opynug tusbxq ocrad ofeizwj"
+
+//console.log("the quick brown fox jumps over the lazy dog".shuffle());
+//-> "o dt hutpe u iqrxj  yaenbwoolhsvmkcger ozf "
+
+document.getElementById('chooseFile').onchange = function(){
+  var file = this.files[0];
+  fajllZgjedhur=1;
+  count=0;
+
+  document.getElementById("perzij").disabled = false;
+  document.getElementById("zbulo").disabled = true;
+  document.getElementById("fjalaPerzier").innerHTML = "Fjala e P&eumlrzier";
+  document.getElementById("fjalaSakte").innerHTML = "Fjala e Sakt&euml";
+  var reader = new FileReader();
+  reader.onload = function(progressEvent){
+    // Entire file
+    //console.log(this.result);
+
+    // By lines
+    lines = this.result.split('\n');
+   /* for(var line = 0; line < lines.length; line++){
+      console.log(lines[line]);
+    }*/
+	
+	
+  };
+  reader.readAsText(file);
+};
+
+function shfaqPerzierjen()
+{
+    if(fajllZgjedhur==0)
+	{
+	document.getElementById("fjalaPerzier").innerHTML = linesG[count].shuffle();
+	}
+	else
+	{
+	document.getElementById("fjalaPerzier").innerHTML = lines[count].shuffle();
+	}
+	document.getElementById("fjalaSakte").innerHTML = "?";
+	count++;
+	document.getElementById("zbulo").disabled = false;
+	document.getElementById("perzij").disabled = true;
+}
+function shfaqFjalen()
+{
+    var fjalaFundit;
+    if(fajllZgjedhur==0)
+	{
+	document.getElementById("fjalaSakte").innerHTML = linesG[count-1];
+	fjalaFundit=linesG.length;
+	}
+	else
+	{
+	    document.getElementById("fjalaSakte").innerHTML = lines[count-1];
+		fjalaFundit=lines.length;
+	}
+	
+	
+	
+	if(count>=fjalaFundit)
+				{
+					alert("Fjal&eumlt kan&euml mbaruar, do fillohet nga fjala e par&euml p&eumlrseri!");
+					count=0;
+					document.getElementById("perzij").disabled = false;
+					document.getElementById("fjalaPerzier").innerHTML = "Fjala e P&eumlrzier";
+	                document.getElementById("fjalaSakte").innerHTML = "Fjala e Sakt&euml";
+					
+				}
+	
+	document.getElementById("zbulo").disabled = true;
+	document.getElementById("perzij").disabled = false;
+}
+
+
+$('#chooseFile').bind('change', function () {
+  var filename = $("#chooseFile").val();
+  if (/^\s*$/.test(filename)) {
+    $(".file-upload").removeClass('active');
+    $("#noFile").text("Asnj&euml fajll i zgjedhur..."); 
+  }
+  else {
+    $(".file-upload").addClass('active');
+    $("#noFile").text(filename.replace("C:\\fakepath\\", "")); 
+  }
+});
+
+</script>
+</body>
+</html>
